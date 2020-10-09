@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navbar @update-page="updatePageValue" />
+    <HelloWorld :inPage="page" />
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+ import HelloWorld from './components/HelloWorld.vue'
+  import Navbar from './components/Navbar.vue';  
+  export default {
+    name: 'navbar',
+    components: {
+      Navbar,
+      HelloWorld
+    },
+    data() {
+      return {
+        page: this.page
+      };
+    },
+    mounted() {
+      this.page = 'home'
+      console.log("page has been set as home", this.page)
+    },
+    methods: {
+      updatePageValue(e){
+        console.log(this.page);
+        this.page = e;
+      }
+    }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
