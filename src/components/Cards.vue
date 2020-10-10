@@ -87,9 +87,9 @@ export default {
 console.log("Testing", process.env.VUE_APP_WP_ADDRESS)
 const BaseUrl = process.env.VUE_APP_WP_ADDRESS + '/wp-json/wp/v2/';
 const PostMapping = {
-      'home': BaseUrl + "posts?_embed&categories=4,6",
-      'videos': BaseUrl + "posts?_embed&categories=4",
-      'articles': BaseUrl + "posts?_embed&categories=6",
+      'home': BaseUrl + "posts?_embed&categories=" + process.env.VUE_APP_CATEGORIES_ARTICLES + ',' + VUE_APP_VIDEO_ARTICLES,
+      'videos': BaseUrl + "posts?_embed&categories=" + VUE_APP_VIDEO_ARTICLES,
+      'articles': BaseUrl + "posts?_embed&categories=" + VUE_APP_CATEGORIES_ARTICLES,
       'standings': ''
     };
 function buildUrl (path) {
