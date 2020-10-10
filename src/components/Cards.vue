@@ -86,10 +86,11 @@ export default {
 };
 console.log("Testing", process.env.VUE_APP_WP_ADDRESS)
 const BaseUrl = process.env.VUE_APP_WP_ADDRESS + '/wp-json/wp/v2/';
+console.log('why doesnt this load', process.env.VUE_APP_VIDEO_ARTICLES)
 const PostMapping = {
-      'home': BaseUrl + "posts?_embed&categories=" + process.env.VUE_APP_CATEGORIES_ARTICLES + ',' + VUE_APP_VIDEO_ARTICLES,
-      'videos': BaseUrl + "posts?_embed&categories=" + VUE_APP_VIDEO_ARTICLES,
-      'articles': BaseUrl + "posts?_embed&categories=" + VUE_APP_CATEGORIES_ARTICLES,
+      'home': BaseUrl + "posts?_embed&categories=" + process.env.VUE_APP_CATEGORIES_ARTICLES + ',' + process.env.VUE_APP_CATEGORIES_VIDEOS,
+      'videos': BaseUrl + "posts?_embed&categories=" + process.env.VUE_APP_CATEGORIES_VIDEOS,
+      'articles': BaseUrl + "posts?_embed&categories=" + process.env.VUE_APP_CATEGORIES_ARTICLES,
       'standings': ''
     };
 function buildUrl (path) {
