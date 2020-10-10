@@ -84,7 +84,8 @@ export default {
     }
 }
 };
-const BaseUrl = 'http://localhost:8888/mysite/wp-json/wp/v2/';
+console.log("Testing", process.env.VUE_APP_WP_ADDRESS)
+const BaseUrl = process.env.VUE_APP_WP_ADDRESS + '/wp-json/wp/v2/';
 const PostMapping = {
       'home': BaseUrl + "posts?_embed&categories=4,6",
       'videos': BaseUrl + "posts?_embed&categories=4",
