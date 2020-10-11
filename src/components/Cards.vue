@@ -6,7 +6,7 @@
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
           <b-col l="4">
-            <a class="card" href="data.link">
+            <a class="card" v-bind:href="data.link">
               <b-card
                 v-bind:title="data.title.rendered"
                 v-bind:img-src="data.image_url"
