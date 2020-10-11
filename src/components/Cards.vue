@@ -6,17 +6,18 @@
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
           <b-col l="4">
-            <b-card
-              v-bind:title="data.title.rendered"
-              v-bind:img-src="data.image_url"
-              img-alt="Image"
-              img-top
-              tag="article"
-              style="max-width: 20rem;"
-              class="mb-2">
-              <b-card-text>{{ `${(data.excerpt.rendered.slice(0,100))}...`  | strippedContent }}</b-card-text>
-              <b-button href="#" variant="primary">View article</b-button>
+            <a class="card" href="data.link">
+              <b-card
+                v-bind:title="data.title.rendered"
+                v-bind:img-src="data.image_url"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2">
+                <b-card-text>{{ `${(data.excerpt.rendered.slice(0,100))}...`  | strippedContent }}</b-card-text>
             </b-card>
+            </a>
           </b-col>
         </div>
       </b-row>
@@ -26,13 +27,33 @@
     </div>
   </b-container>
 </template>
-
+<style scoped>
+  .b-container{
+    background: rgb(248,248,248);
+background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(209,108,108,1) 0%, rgba(81,34,175,1) 100%);
+  }
+  .card {
+    border: None;
+    font-family: 'Fjalla One';
+  }
+  a {
+    color: #707070;
+    text-decoration: none;
+  }
+</style>
+<style lang="scss">
+  body {
+    background: rgb(248,248,248);
+    background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(248,248,248,1) 0%, rgba(233,232,235,1) 100%);  
+    border-radius: 250px, 0, 0, 0;
+  }
+</style>
 <script>
 import axios from "axios"
 export default {
   props: 
     {page: String}, 
-  data() {
+  data: () => {
     return {
       results: []
     };

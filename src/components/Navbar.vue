@@ -1,12 +1,12 @@
 <template>
-    <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <div>
+  <b-navbar toggleable="lg" type="light" variant="faded">
     <b-navbar-brand href="#"><img src="../assets/logo.png" alt="Logo" width="89.5" height="120"></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
+      <b-navbar-nav class="mr-auto" fill>
         <b-nav-item href="#" @click="updatePageValue('home')">Home</b-nav-item>
         <b-nav-item href="#" @click="updatePageValue('videos')">Videos</b-nav-item>
         <b-nav-item href="#" @click="updatePageValue('articles')">Articles</b-nav-item>
@@ -20,6 +20,15 @@
   </b-navbar>
 </div> 
 </template>
+<style>
+  .navbar {
+    height: 125px;
+    font-family: 'Fjalla One';
+    font-size: 37px;
+    background-color: white;
+  };
+
+</style>
 <script>
 export default {
     data() {

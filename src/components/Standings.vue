@@ -4,7 +4,11 @@
     <b-table :fields="fields" striped hover :items="items"></b-table>
   </div>
 </template>
-
+<style scoped>
+  .b-table {
+    font-family: 'Fjalla One';
+  }
+</style>
 <script>
 import axios from "axios"
 export default {

@@ -4,6 +4,14 @@
     <HelloWorld :inPage="page" />
   </div>
 </template>
+<style scoped>
+  body {
+    background: red;
+  }
+  .navbar {
+    background-color: white;
+  }
+</style>
 <script>
  import HelloWorld from './components/HelloWorld.vue'
   import Navbar from './components/Navbar.vue';  
