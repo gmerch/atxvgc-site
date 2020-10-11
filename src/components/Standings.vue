@@ -21,7 +21,7 @@ export default {
     methods: {
       getTable(){
         axios
-          .get('http://localhost:5000/table')
+          .get('http://api.atxvgc.com/table')
           .then(response => this.items = response.data)
           .catch( error => { console.log(error); });
       }
