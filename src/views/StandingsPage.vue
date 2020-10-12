@@ -1,4 +1,4 @@
-//src/components/Standindgs.vue
+//src/views/StandindgsPage.vue
 <template>
   <div>
     <b-table :fields="fields" striped hover :items="items"></b-table>
@@ -10,7 +10,7 @@
   }
 </style>
 <script>
-import axios from "axios"
+import {atxAPI} from '../api/index.js'
 export default {
     data() {
       return {
@@ -19,16 +19,19 @@ export default {
     },
     mounted(){
       console.log('testing 123')
-      this.getTable()
       this.fields = ['name','wins','games_played','win_%']
     },
-    methods: {
-      getTable(){
-        axios
-          .get('https://api.atxvgc.com/api/v1/table')
-          .then(response => this.items = response.data)
-          .catch( error => { console.log(error); });
-      }
+    created () {
+      atxAPI
+        .get('table')
+        .then(response => {
+          this.items = response.data
+          console.log('what')
+          }
+        )
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 </script>

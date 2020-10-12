@@ -7,12 +7,12 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto" fill>
-        <b-nav-item href="#" @click="updatePageValue('home')" id="home">Home</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('videos')" id="videos">Videos</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('articles')" id="articles">Articles</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('resources')" id="resources">Resources</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('standings')" id="standings">Standings</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('about')" id="about">About</b-nav-item>
+        <b-nav-item to="/home">Home</b-nav-item>
+        <b-nav-item to="/videos">Videos</b-nav-item>
+        <b-nav-item to="/articles">Articles</b-nav-item>
+        <b-nav-item to="/resources">Resources</b-nav-item>
+        <b-nav-item to="/standings">Standings</b-nav-item>
+        <b-nav-item to="/about">About</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -26,9 +26,22 @@
     font-family: 'Fjalla One';
     font-size: 37px;
     background-color: white;
+    padding-bottom: 50px
   }
   .navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:focus  {
     color:red;
+  }
+  
+  a {
+    text-decoration: none !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+
+  }
+  .router-link-exact-active .router-link-active a{
+    color:red !important
+  }
+  .router-link {
+    text-decoration: none;
   }
 
 </style>
