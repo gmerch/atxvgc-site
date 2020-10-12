@@ -111,7 +111,7 @@ export default {
   }
 }
 const pageCategories = {
-  '/home': 'posts?_embed&categories=' + process.env.VUE_APP_CATEGORIES_ARTICLES +','+ process.env.VUE_APP_CATEGORIES_VIDEOS,
+  '/': 'posts?_embed&categories=' + process.env.VUE_APP_CATEGORIES_ARTICLES +','+ process.env.VUE_APP_CATEGORIES_VIDEOS,
   '/videos': 'posts?_embed&categories=' +  process.env.VUE_APP_CATEGORIES_VIDEOS,
   '/articles': 'posts?_embed&categories=' + process.env.VUE_APP_CATEGORIES_ARTICLES,
 };

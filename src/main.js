@@ -13,6 +13,10 @@ import BlogPost from './components/BlogPost.vue'
 
 const routes = [
   {
+    path: '/',
+    component: CategoryPage
+  },
+  {
     path: '/home',
     component: CategoryPage
   },
