@@ -7,12 +7,12 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="mr-auto" fill>
-        <b-nav-item href="#" @click="updatePageValue('home')">Home</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('videos')">Videos</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('articles')">Articles</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('resources')">Resources</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('standings')">Standings</b-nav-item>
-        <b-nav-item href="#" @click="updatePageValue('about')">About</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('home')" id="home">Home</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('videos')" id="videos">Videos</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('articles')" id="articles">Articles</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('resources')" id="resources">Resources</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('standings')" id="standings">Standings</b-nav-item>
+        <b-nav-item href="#" @click="updatePageValue('about')" id="about">About</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -26,7 +26,10 @@
     font-family: 'Fjalla One';
     font-size: 37px;
     background-color: white;
-  };
+  }
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus  {
+    color:red;
+  }
 
 </style>
 <script>
@@ -38,6 +41,7 @@ export default {
     },
     methods: {
     updatePageValue(val) {
+        this.val = val
         this.$emit('update-page',val)
     }
   }

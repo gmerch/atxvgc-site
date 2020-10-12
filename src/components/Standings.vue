@@ -25,7 +25,7 @@ export default {
     methods: {
       getTable(){
         axios
-          .get('https://api.atxvgc.com/table')
+          .get('https://api.atxvgc.com/api/v1/table')
           .then(response => this.items = response.data)
           .catch( error => { console.log(error); });
       }

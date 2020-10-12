@@ -33,12 +33,17 @@
     background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(209,108,108,1) 0%, rgba(81,34,175,1) 100%);
   }
   .card {
-    border: None;
     font-family: 'Fjalla One';
+    background: None;
+    border-radius: 25px, 25px, 25px, 25px;
   }
-  a {
+  img{
+    border-radius: 25px, 25px, 25px, 25px;
+  }
+  a, a:hover {
     color: #707070;
     text-decoration: none;
+    border: none;
   }
 </style>
 <style lang="scss">
@@ -47,6 +52,7 @@
     background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(248,248,248,1) 0%, rgba(233,232,235,1) 100%);  
     border-radius: 250px, 0, 0, 0;
   }
+
 </style>
 <script>
 import axios from "axios"
