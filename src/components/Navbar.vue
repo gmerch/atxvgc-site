@@ -6,7 +6,7 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="mr-auto" fill>
+      <b-navbar-nav class="ml-auto" fill>
         <b-nav-item href="#" @click="updatePageValue('home')" id="home">Home</b-nav-item>
         <b-nav-item href="#" @click="updatePageValue('videos')" id="videos">Videos</b-nav-item>
         <b-nav-item href="#" @click="updatePageValue('articles')" id="articles">Articles</b-nav-item>
@@ -27,7 +27,7 @@
     font-size: 37px;
     background-color: white;
   }
-  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus  {
+  .navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:focus  {
     color:red;
   }
 
