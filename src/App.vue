@@ -1,15 +1,16 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One:300,400,700" type='text/css'>
     <Navbar @update-page="updatePageValue" />
     <HelloWorld :inPage="page" />
   </div>
 </template>
 <style scoped>
-  body {
-    background: red;
-  }
   .navbar {
     background-color: white;
+  }
+  body{
+    font-family: 'Fjalla One';
   }
 </style>
 <script>

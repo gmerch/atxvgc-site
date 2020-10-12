@@ -1,6 +1,6 @@
 //src/components/Cards.vue
 <template>
-  <b-container>
+  <b-container id="wrapper">
     <div></div>
     <div v-if="results.length">
       <b-row>
@@ -30,7 +30,7 @@
 <style scoped>
   .b-container{
     background: rgb(248,248,248);
-background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(209,108,108,1) 0%, rgba(81,34,175,1) 100%);
+    background: linear-gradient(90deg, rgba(248,248,248,1) 0%, rgba(209,108,108,1) 0%, rgba(81,34,175,1) 100%);
   }
   .card {
     border: None;
@@ -55,7 +55,7 @@ export default {
     {page: String}, 
   data: () => {
     return {
-      results: []
+      results: [],
     };
   },
   mounted() {
