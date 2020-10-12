@@ -6,7 +6,7 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="ml-auto" fill>
+      <b-navbar-nav class="m-auto" fill>
         <b-nav-item to="/">Home</b-nav-item>
         <b-nav-item to="/videos">Videos</b-nav-item>
         <b-nav-item to="/articles">Articles</b-nav-item>
@@ -22,7 +22,6 @@
 </template>
 <style>
   .navbar {
-    height: 125px;
     font-family: 'Fjalla One';
     font-size: 37px;
     background-color: white;
