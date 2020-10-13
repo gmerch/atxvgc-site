@@ -9,8 +9,6 @@
 
   
 </style>
-<style lang="scss">
-</style>
 <script>
 import {wpAPI} from "../api/index"
 export default {

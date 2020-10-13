@@ -10,6 +10,8 @@ Vue.use(VueRouter)
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
 import BlogPost from './components/BlogPost.vue'
+import About from './views/About.vue'
+import Resources from './views/Resources.vue'
 
 const routes = [
   {
@@ -36,6 +38,14 @@ const routes = [
     path: '/blog/:id',
     name: 'blogpost',
     component: BlogPost
+  },
+  {
+    path: '/about',
+    component: About
+  },
+  {
+    path: '/resources',
+    component: Resources
   }
 ]
 

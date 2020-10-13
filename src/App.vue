@@ -26,9 +26,9 @@
     overflow: hidden;
     perspective: 1px;
     padding-top: 25px;
-    padding-left: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
-  
   .wrapper{
     padding-top: 25px;
   }
