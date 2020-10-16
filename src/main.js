@@ -35,9 +35,11 @@ const routes = [
     component: StandingsPage
   },
   {
-    path: '/blog/:id',
+    path: '/blog/:id/:slug',
     name: 'blogpost',
-    component: BlogPost
+    component: BlogPost,
+    props: true
+
   },
   {
     path: '/about',

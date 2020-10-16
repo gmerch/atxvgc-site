@@ -9,7 +9,7 @@
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
           <b-col l="4">
-            <router-link :to="/blog/ + data.slug">
+            <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-card
                 v-bind:title="data.title.rendered"
                 v-bind:img-src="data.image_url"
@@ -61,10 +61,11 @@ import axios from "axios"
 import {wpAPI} from "../api/index"
 export default {
   props: 
-    {page: String}, 
+    {page: Number}, 
   data: () => {
     return {
       results: [],
+      pid: []
     };
   },
   mounted() {

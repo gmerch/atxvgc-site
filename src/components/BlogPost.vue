@@ -12,6 +12,7 @@
 <script>
 import {wpAPI} from "../api/index"
 export default {
+  props: {id: Number, slug: String},
   data: () => {
     return {
       results: [],
@@ -28,7 +29,7 @@ export default {
   },
   methods: {
     fetchPost(){
-      console.log("route", 'posts/' + this.$route.params.id)
+      console.log('posts', this.$route)
       wpAPI
         .get('posts/' + this.$route.params.id)
         .then(response => {
