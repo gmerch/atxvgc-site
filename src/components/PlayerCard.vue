@@ -8,6 +8,9 @@
         <div v-if="player.twitch">
           <p><img class="country-flag" :src="require('../assets/twitch-logo.png')" height=15px width=15px> <a :href="'https://twitch.com/'+player.twitch">{{ player.twitch }}</a></p>
         </div>
+        <div v-if="player.yt">
+          <p><img class="country-flag" :src="require('../assets/youtube-logo.png')" height=15px width=15px><a :href="player.yt">Last Battle!</a></p>
+        </div>
       </div>
 
 </template>
