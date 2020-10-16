@@ -3,7 +3,7 @@
   <div>
     <b-table :fields="fields" striped hover :items="players" responsive="sm">
       <template v-slot:cell(name)="player">
-        <b class="text-info" v-b-modal="'modal-1'" @click="loadPlayerInfo(player.item)">{{ player.item.name }}</b>
+        <b class="text-info" v-b-modal="'modal'" @click="loadPlayerInfo(player.item)">{{ player.item.name }}</b>
       </template>
       <template v-slot:cell(wins)="player">
         <b class="text-info">{{ player.item.wins }}</b>
@@ -15,11 +15,9 @@
         <b class="text-info">{{ data.item.win_pct }}</b>
         </template>
     </b-table>
-    <b-modal id="modal-1" @hidden="clearPlayerInfo">
+    <b-modal id="modal" @hidden="clearPlayerInfo">
       <template>
-        <p>Name: {{ player.name }} </p>
-        <p>Twitter: <a :href="'https://twitter.com/'+player.twitter">{{ player.twitter }}</a></p>
-        <p>Twitch: <a :href="'https://twitch.com/'+player.twitch">{{ player.twitch }}</a></p>
+      <PlayerCard :player=player />
       </template>
     </b-modal>
   </div>
@@ -31,8 +29,12 @@
 </style>
 <script>
 import {atxAPI} from '../api/index.js'
-
+import PlayerCard from '../components/PlayerCard.vue'
 export default {
+    name: 'player-card',
+    components: {
+      PlayerCard,
+    },
     data() {
       return {
         fields: [],
@@ -82,7 +84,7 @@ export default {
         console.log(this)
         this.player = item
         console.log('player', this.player)
-        this.$bvModal.show('modal-1')
+        this.$bvModal.show('modal')
       },
       clearPlayerInfo(){
         this.player = {};
