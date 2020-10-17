@@ -15,15 +15,7 @@
 
 </template>
 <style scoped>
-  .country-flag img{
-    height: 15px;
-    width: 15px;
-  }
-  .modal-dialog p{
-    font-family: 'Fjalla One';
-  }
-
-  
+  @import '../assets/styles/player-card.module.css'
 </style>
 <script>
 

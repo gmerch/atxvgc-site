@@ -6,8 +6,6 @@
   </b-container>
 </template>
 <style scoped>
-
-  
 </style>
 <script>
 import {wpAPI} from "../api/index"

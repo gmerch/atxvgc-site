@@ -1,4 +1,3 @@
-//src/views/StandindgsPage.vue
 <template>
   <div>
     <b-table :fields="fields" striped hover :items="players" responsive="sm">
@@ -23,9 +22,7 @@
   </div>
 </template>
 <style scoped>
-  .b-table {
-    font-family: 'Fjalla One';
-  }
+   @import '../assets/styles/standing-page.module.css'
 </style>
 <script>
 import {atxAPI} from '../api/index.js'

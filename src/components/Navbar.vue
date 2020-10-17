@@ -21,27 +21,7 @@
 </div> 
 </template>
 <style>
-  .navbar {
-    font-family: 'Fjalla One';
-    font-size: 37px;
-    background-color: white;
-    padding-bottom: 50px
-  }
-  .navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:focus  {
-    color:red;
-  }
-  
-  a {
-    text-decoration: none !important;
-    color: rgba(0, 0, 0, 0.5) !important;
-  }
-  .router-link-exact-active .router-link-active a{
-    color:red !important
-  }
-  .router-link {
-    text-decoration: none;
-  }
-
+  @import '../assets/styles/navbar.module.css'
 </style>
 <script>
 export default {

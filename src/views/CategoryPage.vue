@@ -31,30 +31,7 @@
   </b-container>
 </template>
 <style scoped>
-  
-
-  .card {
-    font-family: 'Fjalla One';
-    background: None;
-    border: none;
-    border-radius: 30px, 30px, 30px, 30px;
-  }
-  .card-body {
-    background: white;
-    border: none;
-  }
-  img{
-    border-radius: 25px, 25px, 25px, 25px;
-  }
-  a, a:hover {
-    color: #707070;
-    text-decoration: none;
-    border: none;
-  }
-  
-</style>
-<style lang="scss">
-
+  @import '../assets/styles/category-page.module.css'
 </style>
 <script>
 import axios from "axios"
