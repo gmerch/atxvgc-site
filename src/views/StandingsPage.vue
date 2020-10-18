@@ -22,7 +22,7 @@
   </div>
 </template>
 <style scoped>
-   @import '../assets/styles/standing-page.module.css'
+   @import '../assets/styles/standings-page.module.css'
 </style>
 <script>
 import {atxAPI} from '../api/index.js'

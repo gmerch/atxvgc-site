@@ -18,4 +18,10 @@
   }
 .wrapper{
     padding-top: 25px;
-    }
+}
+.navbar-container {
+  max-width: none;
+}
+#app {
+  max-height: none;
+}

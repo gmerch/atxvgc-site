@@ -1,8 +1,8 @@
 .navbar {
     font-family: 'Fjalla One';
-    font-size: 37px;
     background-color: white;
-    padding-bottom: 50px
+    font-size: 25px;
+    padding-bottom: 10px
 }
 .navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:focus  {
     color:red;
@@ -17,4 +17,27 @@ a {
 }
 .router-link {
     text-decoration: none;
+}
+.social-icon{
+    height: 40px;
+    width: auto;
+  }
+.navbar-container .container div{
+    width:100%;
+}
+@media (min-width: 1200px)
+.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
+  max-width: none;
+}
+@media (min-width: 992px)
+.container-navbar, .container-sm, .container-md, .container-lg, .container-xl {
+  max-width: None;
+}
+@media (min-width: 768px)
+.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
+  max-width: none;
+}
+@media (min-width: 576)
+.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: none;
 }

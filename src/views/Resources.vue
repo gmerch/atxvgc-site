@@ -7,7 +7,7 @@
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
           <b-col l="4">
-            <router-link :to="/blog/ + data.id">
+            <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-card
                 v-bind:title="data.title.rendered"
                 v-bind:img-src="data.image_url"

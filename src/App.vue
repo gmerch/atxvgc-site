@@ -4,7 +4,7 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One:300,400,700" type='text/css'>
-    <Navbar @update-page="updatePageValue" />
+    <Navbar @update-page="updatePageValue" class="xl ml-0 mr-0"/>
     <div class="solid-gradient">
       <router-view />
     </div>
@@ -15,7 +15,7 @@
 </style>
 <script>
   import Navbar from './components/Navbar.vue';  
-
+  
   export default {
     name: 'navbar',
     components: {
