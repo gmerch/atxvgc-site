@@ -60,7 +60,7 @@ export default {
       let posts = this.results;
       // Add image_url attribute
       posts.map(post => {
-        let imgObj = post._embedded['wp:featuredmedia'][0]['media_details']['sizes']['medium'];
+        let imgObj = post._embedded['wp:featuredmedia'][0]['media_details']['sizes']['full'];
         post.image_url = imgObj ? imgObj.source_url : "./assets/logo.png";
       });
       

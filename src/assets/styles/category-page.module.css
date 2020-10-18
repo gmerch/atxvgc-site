@@ -16,3 +16,6 @@ a, a:hover {
     border: none;
     text-decoration: none;
 }
+.card-img-top {
+  border-radius: 25px;
+}
