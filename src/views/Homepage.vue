@@ -37,7 +37,7 @@
         </b-row>
         <b-row>
           <b-col fluid="md" lg=8>
-          <a href="https://discord.gg/axJgqGg">
+          <a href="https://discord.gg/axJgqGg" target="_blank" rel="noopener noreferrer">
           <b-card
             title="Monday Night Friendlies"
             class="resources-card mb-0 mt-0">
