@@ -144,6 +144,12 @@ export default {
           console.log
           this.videos = response.data
         })
+    },
+    onSlideStart() {
+      this.sliding = true
+    },
+    onSlideEnd() {
+      this.sliding = false
     }
   }
 }

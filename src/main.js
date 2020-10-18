@@ -8,9 +8,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
-Vue.use(VueGtag, {
-  config: { id: "UA-180683814-1" }
-});
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
@@ -61,6 +58,10 @@ const router = new VueRouter({
   mode:'history',
   routes
 })
+
+Vue.use(VueGtag, {
+  config: { id: "UA-180683814-1" }
+}, router);
 
 Vue.config.productionTip = false
 Vue.filter('striphtml', function (value) {
