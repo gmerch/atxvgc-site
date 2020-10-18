@@ -30,12 +30,13 @@
             title="Resources"
             class="resources-card mb-0 mt-0"
           >
-          <a href="/blog/13/50-game-test-delete-later-so-chase-can-auth">50 Game Test</a>
+          <p><a href="/blog/13/50-game-test-delete-later-so-chase-can-auth">50 Game Test</a></p>
+          <p><a href="/blog/blog/23/vgc-2020">VGC 2020</a></p>
           </b-card>
         </b-col>
         </b-row>
         <b-row>
-          <b-col fluid="lg" cols=8>
+          <b-col fluid="md" lg=8>
           <a href="https://discord.gg/axJgqGg">
           <b-card
             title="Monday Night Friendlies"
@@ -52,7 +53,7 @@
     <div v-if="videos.length">
         <div v-bind:key="data.index" v-for="data in processedVideos">
           <b-row>
-          <b-col fluid="lg" cols=8>
+          <b-col fluid="md" lg=8>
             <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-card
                 v-bind:title="data.title.rendered"
