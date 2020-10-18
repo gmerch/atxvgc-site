@@ -25,19 +25,3 @@ a {
 .navbar-container .container div{
     width:100%;
 }
-@media (min-width: 1200px)
-.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
-  max-width: none;
-}
-@media (min-width: 992px)
-.container-navbar, .container-sm, .container-md, .container-lg, .container-xl {
-  max-width: None;
-}
-@media (min-width: 768px)
-.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
-  max-width: none;
-}
-@media (min-width: 576)
-.container-navbar .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: none;
-}

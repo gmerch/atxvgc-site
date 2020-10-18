@@ -36,12 +36,14 @@
         </b-row>
         <b-row>
           <b-col fluid="lg" cols=8>
+          <a href="https://discord.gg/axJgqGg">
           <b-card
             title="Monday Night Friendlies"
             class="resources-card mb-0 mt-0">
             <p>Want to sign up for our Monday Night Friendlies? Join our discord and find the signups in the #announcements</p>
-            <a href="https://discord.gg/axJgqGg"><img class="social-icon" src="../assets/logos/discord-circle-logo.png"></a>
+            <img class="social-icon" src="../assets/logos/discord-circle-logo.png">
           </b-card>
+          </a>
           </b-col>
         </b-row>
         <b-row>
