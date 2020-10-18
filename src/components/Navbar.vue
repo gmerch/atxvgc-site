@@ -20,10 +20,10 @@
     </b-collapse>
     </b-col>
     <b-col fluid="sm" cols=2>
-    <a href="https://twitch.tv/atx_vgc"><img class="social-icon" src="../assets/logos/twitch-circle-logo.png"></a>
-    <a href="https://twitter.com/atxvgc"><img class="social-icon" src="../assets/logos/twitter-circle-logo.png"></a>
-    <a href="https://discord.gg/axJgqGg"><img class="social-icon" src="../assets/logos/discord-circle-logo.png"></a>
-    <a href="https://www.youtube.com/channel/UC3cJmoST6hTn_tFLLsskSLw"><img class="social-icon" src="../assets/logos/youtube-circle-logo.png"></a>
+    <a href="https://twitch.tv/atx_vgc" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="../assets/logos/twitch-circle-logo.png"></a>
+    <a href="https://twitter.com/atxvgc" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="../assets/logos/twitter-circle-logo.png"></a>
+    <a href="https://discord.gg/axJgqGg" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="../assets/logos/discord-circle-logo.png"></a>
+    <a href="https://www.youtube.com/channel/UC3cJmoST6hTn_tFLLsskSLw" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="../assets/logos/youtube-circle-logo.png"></a>
     
   </b-col>
   </b-navbar>
