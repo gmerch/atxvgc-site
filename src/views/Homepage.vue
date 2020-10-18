@@ -42,7 +42,7 @@
             title="Monday Night Friendlies"
             class="resources-card mb-0 mt-0">
             <p>Want to sign up for our Monday Night Friendlies? Join our discord and find the signups in the #announcements</p>
-            <img class="social-icon" src="../assets/logos/discord-circle-logo.png">
+            <img class="social-icon center" src="../assets/logos/discord-circle-logo.png">
           </b-card>
           </a>
           </b-col>
@@ -63,7 +63,7 @@
                 tag="article"
                 style="max-width;"
                 class="mb-2"
-                max-width="100%">
+                >
                 <b-card-text><div v-html="data.excerpt.rendered.slice(0,100)"></div></b-card-text>
             </b-card>
             </router-link>
@@ -75,15 +75,39 @@
     </b-container>
 </template>
 
-<style scoped>
+<style>
+.social-icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .card-body {
-  margin-top: 20px
+  margin-top: 20px;
+  border-radius: 25px;
 }
 .card-title {
   text-align: center;
 }
 .cards {
   margin-top: 20px;
+}
+.carousel-inner{
+  border-radius: 25px;
+}
+.carousel {
+  border-radius: 25px;
+}
+.slide {
+  border-radius: 25px;
+}
+.img-fluid {
+  border-radius: 25px;
+}
+.w-100 {
+  border-radius: 25px;
+}
+.card-img-bottom {
+  border-radius: 25px;
 }
 </style>
 <script>
