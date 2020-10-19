@@ -4,7 +4,7 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One:300,400,700" type='text/css'>
-    <Navbar @update-page="updatePageValue" class="xl ml-0 mr-0"/>
+    <LaunchNavbar @update-page="updatePageValue" class="xl ml-0 mr-0"/>
     <div class="solid-gradient">
       <router-view />
     </div>
@@ -14,12 +14,12 @@
    @import './assets/styles/app.module.css'
 </style>
 <script>
-  import Navbar from './components/Navbar.vue';  
+  import LaunchNavbar from './components/LaunchNavbar.vue';  
   
   export default {
-    name: 'navbar',
+    name: 'launch-navbar',
     components: {
-      Navbar,
+      LaunchNavbar,
     },
     data() {
       return {

@@ -5,52 +5,18 @@ import BootstrapVue from 'bootstrap-vue'
 import VueGtag from "vue-gtag";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
+Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 
-import CategoryPage from './views/CategoryPage.vue'
-import StandingsPage from './views/StandingsPage.vue'
-import BlogPost from './components/BlogPost.vue'
-import About from './views/About.vue'
-import Resources from './views/Resources.vue'
-import Homepage from './views/Homepage.vue'
+import ComingSoon from './views/ComingSoon.vue'
 
 const routes = [
   {
     path: '/',
-    component: Homepage
-  },
-  {
-    path: '/home',
-    component: Homepage
-  },
-  {
-    path: '/articles',
-    component: CategoryPage
-  },
-  {
-    path: '/videos',
-    component: CategoryPage
-  }, 
-  {
-    path: '/standings',
-    component: StandingsPage
-  },
-  {
-    path: '/blog/:id/:slug',
-    name: 'blogpost',
-    component: BlogPost,
-    props: true
-
-  },
-  {
-    path: '/about',
-    component: About
-  },
-  {
-    path: '/resources',
-    component: Resources
+    component: ComingSoon
   }
 ]
 
