@@ -13,8 +13,11 @@
       <template v-slot:cell(win_pct)="player">
         <b class="text-info">{{ player.item.win_pct }}</b>
         </template>
+      <template v-slot:head(points)="player">
+        <b-span id="tooltip-points-show-event" variant="primary"> {{ player.label }} </b-span>
+      </template>
         <template v-slot:cell(points)="player">
-          <b class="text-info py-3" variant="primary" style="pointer-events: none;" v-b-tooltip.hover="'Tooltip!'">{{ player.item.points }}</b>
+          <b class="text-info py-3">{{ player.item.points }}</b>
         </template>
     </b-table>
     <b-modal id="modal" @hidden="clearPlayerInfo">
@@ -22,6 +25,9 @@
       <PlayerCard :player=player />
       </template>
     </b-modal>
+    <b-tooltip ref="tooltip" target="tooltip-points-show-event">
+      Wins are worth 10 points while losses subtract 4 points.
+    </b-tooltip>
   </div>
 </template>
 <style scoped>
@@ -93,6 +99,12 @@ export default {
       },
       clearPlayerInfo(){
         this.player = {};
+      },
+      onOpen() {
+        this.$refs.tooltip.$emit('open')
+      },
+      onClose() {
+        this.$refs.tooltip.$emit('close')
       }
     }
   }
