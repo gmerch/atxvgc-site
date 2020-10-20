@@ -13,7 +13,14 @@
         <b-nav-item to="/videos">Videos</b-nav-item>
         <b-nav-item to="/articles">Articles</b-nav-item>
         <b-nav-item to="/resources">Resources</b-nav-item>
-        <b-nav-item to="/friendlies">Friendlies</b-nav-item>
+        <b-nav-item-dropdown id="friendlies-drop-down"
+          text="Friendlies"
+          toggle-class="nav-link-custom"
+          right>
+            <b-dropdown-item to="/friendlies/standings">Standings</b-dropdown-item>
+            <b-dropdown-item to="/friendlies/usage">Usage Stats</b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <b-nav-item to="/about">About</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->
