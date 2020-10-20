@@ -62,9 +62,6 @@ export default {
       }
     },
     mounted(){  
-      console.log('testing 123')
-      console.log(this.series);
-      console.log('one last attempt', this.usage)
       this.fields = [
         {
           key:'name',
@@ -83,9 +80,6 @@ export default {
           this.usage = response.data.pokemon
           this.format = response.data.format
           this.series = response.data.series
-          console.log('created', response.data)
-          console.log(this)
-          console.log(response.data)
           }
         )
         .catch(e => {
@@ -94,15 +88,12 @@ export default {
     },
     methods: {
       fetchUsage(){
-          console.log('Starting fetch');
           atxAPI
         .get('usage?series='+this.selected)
         .then(response => {
           this.usage = response.data.pokemon
           this.format = response.data.format
           this.series = response.data.series
-          console.log('requested', response.data.pokemon)
-          console.log(this.usage)
           }
         )
         .catch(e => {
