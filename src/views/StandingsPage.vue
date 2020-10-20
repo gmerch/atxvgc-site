@@ -10,8 +10,11 @@
       <template v-slot:cell(games_played)="player">
         <b class="text-info">{{ player.item.games_played }}</b>
       </template>
-      <template v-slot:cell(win_pct)="data">
-        <b class="text-info">{{ data.item.win_pct }}</b>
+      <template v-slot:cell(win_pct)="player">
+        <b class="text-info">{{ player.item.win_pct }}</b>
+        </template>
+        <template v-slot:cell(points)="player">
+          <b class="text-info py-3" variant="primary" style="pointer-events: none;" v-b-tooltip.hover="'Tooltip!'">{{ player.item.points }}</b>
         </template>
     </b-table>
     <b-modal id="modal" @hidden="clearPlayerInfo">
@@ -60,6 +63,11 @@ export default {
         {
           key:'win_pct',
           label: 'Win Percentage',
+          sortable:true
+        },
+        {
+          key: 'points',
+          label: 'Points',
           sortable:true
         }
       ]

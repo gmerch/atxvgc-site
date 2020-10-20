@@ -13,7 +13,7 @@
         <b-nav-item to="/videos">Videos</b-nav-item>
         <b-nav-item to="/articles">Articles</b-nav-item>
         <b-nav-item to="/resources">Resources</b-nav-item>
-        <b-nav-item to="/standings">Standings</b-nav-item>
+        <b-nav-item to="/friendlies">Friendlies</b-nav-item>
         <b-nav-item to="/about">About</b-nav-item>
       </b-navbar-nav>
       <!-- Right aligned nav items -->

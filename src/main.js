@@ -34,7 +34,7 @@ const routes = [
     component: CategoryPage
   }, 
   {
-    path: '/standings',
+    path: '/friendlies',
     component: StandingsPage
   },
   {
