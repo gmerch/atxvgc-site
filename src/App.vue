@@ -12,10 +12,11 @@
 </template>
 <style scoped>
    @import './assets/styles/app.module.css'
+
 </style>
 <script>
   import Navbar from './components/Navbar.vue';  
-  
+  import './assets/styles/app.module.css'
   export default {
     name: 'navbar',
     components: {

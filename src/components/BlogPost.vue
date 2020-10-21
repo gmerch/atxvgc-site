@@ -4,11 +4,14 @@
       <h1> {{ results.title.rendered }} </h1>
       <div v-html="results.content.rendered"></div>
   </b-container>
+  
 </template>
 <style scoped>
+
 </style>
 <script>
 import {wpAPI} from "../api/index"
+
 export default {
   props: {id: Number, slug: String},
   data: () => {
@@ -21,9 +24,12 @@ export default {
   },
   computed: {
     post (){
-      this.fetchPost()  
+      this.fetchPost()
+      console.log("fetching!")
       return this.results
-    }
+
+    },
+    
   },
   methods: {
     fetchPost(){
@@ -39,6 +45,6 @@ export default {
           console.log(e)
         })
     },
-  },
+  }
 }
 </script>

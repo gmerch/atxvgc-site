@@ -16,11 +16,13 @@
             @sliding-end="onSlideEnd"
           >
             <div v-bind:key="data.index" v-for="data in processedPosts">
+            <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-carousel-slide
                 v-bind:caption="data.title.rendered"
                 v-bind:img-src="data.image_url"
+                
               ></b-carousel-slide>
-  
+            </router-link>
             </div>
           </b-carousel>
         </b-col>
@@ -30,7 +32,7 @@
             title="Resources"
             class="resources-card mb-0 mt-0"
           >
-          <p><a href="/blog/13/50-game-test-delete-later-so-chase-can-auth">50 Game Test</a></p>
+          <p><a href="/blog/13/50-game-test">50 Game Test</a></p>
           <p><a href="/blog/blog/23/vgc-2020">VGC 2020</a></p>
           </b-card>
         </b-col>
