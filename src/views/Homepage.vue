@@ -78,6 +78,10 @@
 </template>
 
 <style>
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+}
 .social-icon-center{
   display: block;
   margin-left: auto;
