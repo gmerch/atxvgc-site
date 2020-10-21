@@ -89,8 +89,8 @@ export default {
   }
 }
 const pageCategories = {
-  '/': 'posts?_embed&categories=' + process.env.VUE_APP_CATEGORIES_ARTICLES +','+ process.env.VUE_APP_CATEGORIES_VIDEOS,
-  '/videos': 'posts?_embed&categories=' +  process.env.VUE_APP_CATEGORIES_VIDEOS,
-  '/articles': 'posts?_embed&categories=' + process.env.VUE_APP_CATEGORIES_ARTICLES,
+  '/': 'posts?_embed&categories=2,3',
+  '/videos': 'posts?_embed&categories=2',
+  '/articles': 'posts?_embed&categories=3'
 };
 </script>
