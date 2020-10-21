@@ -33,7 +33,7 @@
             class="resources-card mb-0 mt-0"
           >
           <p><a href="/blog/13/50-game-test">50 Game Test</a></p>
-          <p><a href="/blog/blog/23/vgc-2020">VGC 2020</a></p>
+          <p><a href="/blog/23/vgc-2020">VGC 2020</a></p>
           </b-card>
         </b-col>
         </b-row>
@@ -150,7 +150,7 @@ export default {
   },
   methods: {
     fetchSliderPosts(){
-      console.log('posts?_embed&categories=6')
+      console.log('posts?_embed&  ')
       wpAPI
         .get('posts?_embed&categories=6')
         .then(response => {
