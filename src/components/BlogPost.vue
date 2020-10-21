@@ -7,7 +7,14 @@
   
 </template>
 <style scoped>
-
+.twitter-tweet block a { 
+  border: 2px solid black !important;
+  border-radius: 5px;
+}
+.tweet-border div{
+  border: 2px solid black !important;
+  border-radius: 5px;
+}
 </style>
 <script>
 import {wpAPI} from "../api/index"
