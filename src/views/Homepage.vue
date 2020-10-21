@@ -150,9 +150,9 @@ export default {
   },
   methods: {
     fetchSliderPosts(){
-      console.log('posts?_embed&categories=' +  process.env.VUE_APP_CATEGORIES_VIDEOS)
+      console.log('posts?_embed&categories=6')
       wpAPI
-        .get('posts?_embed&categories='+process.env.VUE_APP_CATEGORIES_ARTICLES)
+        .get('posts?_embed&categories=6')
         .then(response => {
           this.results = response.data
           console.log('res', this.results)
@@ -163,9 +163,9 @@ export default {
         })
     },
     fetchLatestVideo(){
-      console.log('posts?_embed&categories=' +  process.env.VUE_APP_CATEGORIES_VIDEOS)
+      console.log('posts?_embed&categories=2')
       wpAPI
-        .get('posts?_embed&categories=' +  process.env.VUE_APP_CATEGORIES_VIDEOS)
+        .get('posts?_embed&categories=2')
         .then(response => {
           console.log
           this.videos = response.data
