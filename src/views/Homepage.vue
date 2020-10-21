@@ -81,6 +81,7 @@
 .carousel-caption {
     top: 0;
     bottom: auto;
+    -webkit-text-stroke: 1px black;
 }
 .social-icon-center{
   display: block;
