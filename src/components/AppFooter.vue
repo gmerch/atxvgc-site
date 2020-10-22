@@ -1,12 +1,14 @@
 <template>
-    <p>Copyright copy 2018, ABC Marketing. All Rights Reserved.</p>
+  <div>
+    <p>Content &copy; 2020 ATX VGC, LLC All Rights Reserved</p>
+  </div>
 </template>
-
 <script>
 export default {
-  data() {
-    return {
-    }
-  }
+    data: () => {
+      return {
+        results: [],
+      };
+    },
 }
 </script>
