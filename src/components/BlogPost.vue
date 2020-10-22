@@ -27,6 +27,7 @@ import {wpAPI} from "../api/index"
 
 export default {
   metaInfo(){
+      this.fetchPost()
       return {
         title: `this.results.title.rendered`,
          meta: [
