@@ -7,10 +7,10 @@
     <div class="solid-gradient">
       <router-view />
     </div>
-    <AppFooter></AppFooter>
-    
+    <footer>
+      <AppFooter />
+    </footer>
   </div>
-
 </template>
 <style scoped>
    @import './assets/styles/app.module.css'
@@ -18,7 +18,7 @@
 </style>
 <script>
   import Navbar from './components/Navbar.vue'; 
-  import AppFooter from './components/AppFooter.vue'
+  import AppFooter from './components/AppFooter.vue';
   import './assets/styles/app.module.css'
   export default {
     name: 'navbar',

@@ -1,7 +1,5 @@
 <template>
-  <div>
-      <h2>Hello, testing</h2>
-  </div>
+    <p>Copyright copy 2018, ABC Marketing. All Rights Reserved.</p>
 </template>
 
 <script>
