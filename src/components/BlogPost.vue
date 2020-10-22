@@ -26,14 +26,18 @@
 import {wpAPI} from "../api/index"
 
 export default {
+  titleTemplate: () => {
+  // If undefined or blank then we don't need the hyphen
+    return this.results.title.rendered ? `${this.results.title.rendered} - ATX VGC` : 'ATX VGC';
+  },
   metaInfo(){
       this.fetchPost()
       return {
-        title: `this.results.title.rendered`,
+        title: this.title,
          meta: [
           // Twitter Card
           {name: 'twitter:card', content: 'summary'},
-          {name: 'twitter:title', content: this.results.title.rendered},
+          {name: 'twitter:title', content: this.title},
           {name: 'twitter:description', content: this.results.excerpt.rendered},
           // image must be an absolute path
           {name: 'twitter:image', content: this.embedded["wp:featuredmedia"][0].full.source_url},
@@ -50,7 +54,7 @@ export default {
   props: {id: Number, slug: String},
   data: () => {
     return {
-      results: [],
+      results: []
     };
   },
   mounted() {
@@ -66,7 +70,7 @@ export default {
     
   },
   methods: {
-    fetchPost(){
+    async fetchPost(){
       console.log('posts', this.$route)
       wpAPI
         .get('posts/' + this.$route.params.id)

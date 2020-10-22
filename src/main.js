@@ -22,10 +22,23 @@ import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
 
+
+
+
+
 const routes = [
   {
     path: '/',
-    component: Homepage
+    component: Homepage,
+    meta: {
+      'twitter:card': 'summary',
+      'twitter:title':'ATX VGC',
+      'twitter:description': "Home of Austin Texas' VGC Community",
+      'og:title': 'ATX VGC',
+      'og:type': 'website',
+      'og:image': './assets/logo.png',
+      'og:description': "Home of Austin Texas' VGC Community",
+    }
   },
   {
     path: '/home',
