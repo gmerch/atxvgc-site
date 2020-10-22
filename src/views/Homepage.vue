@@ -26,7 +26,8 @@
             </div>
           </b-carousel>
         </b-col>
-        <b-col fluid="sm">
+
+        <b-col fluid="xs">
           
           <b-card
             title="Resources"
@@ -44,7 +45,7 @@
             title="Monday Night Friendlies"
             class="resources-card mb-0 mt-0">
             <p>Want to sign up for our Monday Night Friendlies? Join our discord and find the signups in the #announcements</p>
-            <img class="social-icon-center" src="../assets/logos/discord-circle-logo.png">
+            <img class="social-icon-center" src="../assets/hype-wak.png">
           </b-card>
           </a>
           </b-col>

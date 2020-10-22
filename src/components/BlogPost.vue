@@ -1,8 +1,14 @@
 //src/components/BlogPage.vue
 <template>
   <b-container id="wrapper">
-      <h1> {{ results.title.rendered }} </h1>
-      <div v-html="results.content.rendered"></div>
+
+      <b-row>
+      <b-col fluid="md" lg=8><h1><div v-html="results.title.rendered"></div></h1></b-col><b-col cols=4></b-col>
+      </b-row>
+      <b-row><br></b-row>
+      <b-row>
+      <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col><b-col cols=4></b-col>
+        </b-row>
   </b-container>
   
 </template>

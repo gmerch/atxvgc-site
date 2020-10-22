@@ -3,10 +3,12 @@
 
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One:300,400,700" type='text/css'>
-    <Navbar @update-page="updatePageValue" class="xl ml-0 mr-0"/>
+    <Navbar @update-page="updatePageValue" class="xl ml-0 mr-auto"/>
     <div class="solid-gradient">
       <router-view />
+    </div>
+    <div>
+    <AppFooter />
     </div>
   </div>
 </template>
@@ -15,12 +17,13 @@
 
 </style>
 <script>
-  import Navbar from './components/Navbar.vue';  
+  import Navbar from './components/Navbar.vue'; 
+  import AppFooter from './components/AppFooter.vue';
   import './assets/styles/app.module.css'
   export default {
-    name: 'navbar',
     components: {
       Navbar,
+      AppFooter
     },
     data() {
       return {

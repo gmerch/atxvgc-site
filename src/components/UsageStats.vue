@@ -42,7 +42,6 @@ export default {
                 selectedColor: 'white',
                 selectedBackgroundColor: 'green',
                 borderColor: 'black',
-                fontFamily: 'Fjalla One',
                 fontWeight: 'normal',
                 fontWeightSelected: 'bold',
                 squareCorners: false,
