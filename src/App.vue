@@ -25,6 +25,10 @@
       Navbar,
       AppFooter
     },
+    metaInfo: {
+      title: 'ATX VGC',
+      titleTemplate: '%s | ATX VGC'
+    },
     data() {
       return {
         page: this.page

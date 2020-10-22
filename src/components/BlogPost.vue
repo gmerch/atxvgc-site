@@ -58,6 +58,26 @@ export default {
           console.log(e)
         })
     },
+    metaInfo(){
+      return {
+        title: `this.results.title.rendered`,
+         meta: [
+          // Twitter Card
+          {name: 'twitter:card', content: 'summary'},
+          {name: 'twitter:title', content: this.results.title.rendered},
+          {name: 'twitter:description', content: this.results.excerpt.rendered},
+          // image must be an absolute path
+          {name: 'twitter:image', content: this.embedded["wp:featuredmedia"][0].full.source_url},
+          // Facebook OpenGraph
+          {property: 'og:title', content: this.results.title.rendered},
+          {property: 'og:site_name', content: 'ATX VGC'},
+          {property: 'og:type', content: 'website'},
+          {property: 'og:image', content:  this.results.embedded["wp:featuredmedia"][0].full.source_url},
+          {property: 'og:description', content: this.results.excerpt.rendered}
+      ]
+      }
+
+    }
   }
 }
 </script>

@@ -4,12 +4,15 @@ import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueGtag from "vue-gtag";
 import ToggleSwitch from 'vuejs-toggle-switch';
+import Meta from 'vue-meta';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 Vue.use(ToggleSwitch)
+Vue.use(Meta)
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
