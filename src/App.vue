@@ -10,6 +10,7 @@
     <div>
     <AppFooter />
     </div>
+    <router-view></router-view>
   </div>
 </template>
 <style scoped>
@@ -24,10 +25,6 @@
     components: {
       Navbar,
       AppFooter
-    },
-    metaInfo: {
-      title: 'ATX VGC',
-      titleTemplate: '%s | ATX VGC'
     },
     data() {
       return {

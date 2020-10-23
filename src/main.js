@@ -31,22 +31,136 @@ const routes = [
     path: '/',
     component: Homepage,
     meta: {
-      'twitter:card': 'summary',
-      'twitter:title':'ATX VGC',
-      'twitter:description': "Home of Austin Texas' VGC Community",
-      'og:title': 'ATX VGC',
-      'og:type': 'website',
-      'og:image': './assets/logo.png',
-      'og:description': "Home of Austin Texas' VGC Community",
+      'title': 'ATX VGC',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC is the Home of the Austin Texas VGC Community"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC is the Home of the Austin Texas VGC Community"
+        }
+      ]
     }
   },
   {
     path: '/home',
-    component: Homepage
+    component: Homepage,
+    meta: {
+      'title': 'ATX VGC',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC is the Home of the Austin Texas VGC Community"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC is the Home of the Austin Texas VGC Community"
+        }
+      ]
+    }
   },
   {
     path: '/articles',
-    component: CategoryPage
+    component: CategoryPage,
+    meta: {
+      'title': 'ATX VGC Articles',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC VGC Articles Page"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'Articles | ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'Articles | ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC's Articles"
+        }
+      ]
+    }
   },
   {
     path: '/videos',
