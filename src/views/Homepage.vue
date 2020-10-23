@@ -16,7 +16,7 @@
             @sliding-end="onSlideEnd"
           >
             <div v-bind:key="data.index" v-for="data in processedPosts">
-            <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
+            <router-link :to="'/blog/'+ data.id.toString() + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-carousel-slide
                 v-bind:caption="data.title.rendered"
                 v-bind:img-src="data.image_url"
@@ -121,6 +121,11 @@
 <script>
 import {wpAPI} from "../api/index"
 export default {
+    metaInfo: {
+      title: 'ATX VGC Home',
+      // override the parent template and just use the above title only
+      titleTemplate: null
+    },
     data() {
       return {
         results: [],

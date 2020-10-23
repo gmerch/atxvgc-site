@@ -32,21 +32,22 @@ export default {
   },
   metaInfo(){
       this.fetchPost()
+      console.log('tesing meta stuff', this.post.title)
       return {
         title: this.title,
          meta: [
           // Twitter Card
           {name: 'twitter:card', content: 'summary'},
-          {name: 'twitter:title', content: this.title},
-          {name: 'twitter:description', content: this.results.excerpt.rendered},
+          {name: 'twitter:title', content: this.post.title},
+          {name: 'twitter:description', content: this.post.excerpt.rendered},
           // image must be an absolute path
-          {name: 'twitter:image', content: this.embedded["wp:featuredmedia"][0].full.source_url},
+          {name: 'twitter:image', content: this.post.embedded["wp:featuredmedia"][0].full.source_url},
           // Facebook OpenGraph
-          {property: 'og:title', content: this.results.title.rendered},
+          {property: 'og:title', content: this.post.title.rendered},
           {property: 'og:site_name', content: 'ATX VGC'},
           {property: 'og:type', content: 'website'},
-          {property: 'og:image', content:  this.results.embedded["wp:featuredmedia"][0].full.source_url},
-          {property: 'og:description', content: this.results.excerpt.rendered}
+          {property: 'og:image', content:  this.post.embedded["wp:featuredmedia"][0].full.source_url},
+          {property: 'og:description', content: this.post.excerpt.rendered}
       ]
       }
 
@@ -70,7 +71,7 @@ export default {
     
   },
   methods: {
-    async fetchPost(){
+    fetchPost(){
       console.log('posts', this.$route)
       wpAPI
         .get('posts/' + this.$route.params.id)
