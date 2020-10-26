@@ -1,5 +1,6 @@
 ///src/views/Homepage.vue
 <template>
+    <b-container>
     <b-container class="ml-0 mr-0 full-page">
       <b-row class="mb-3">
         <b-col fluid="md" lg=8>
@@ -18,7 +19,7 @@
             <div v-bind:key="data.index" v-for="data in processedPosts">
             <router-link :to="'/blog/'+ data.id.toString() + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-carousel-slide
-                v-bind:caption="data.title.rendered"
+                v-bind:caption="domDecoder(data.title.rendered)"
                 v-bind:img-src="data.image_url"
                 
               ></b-carousel-slide>
@@ -38,6 +39,7 @@
           </b-card>
         </b-col>
         </b-row>
+        </b-container>
         <b-row>
           <b-col fluid="md" lg=8>
           <a href="https://discord.gg/axJgqGg" target="_blank" rel="noopener noreferrer">
@@ -59,7 +61,7 @@
           <b-col fluid="md" lg=8>
             <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-card
-                v-bind:title="data.title.rendered"
+                v-bind:title="domDecoder(data.title.rendered)"
                 v-bind:img-src="data.image_url"
                 img-alt="Image"
                 img-bottom
@@ -165,13 +167,19 @@ export default {
       return posts;
     },
     processedVideos() {
-      console.log(this.videos)
+      console.log('vids', this.videos)
       let vids = this.videos;
+      let max = 2;
       vids.map(vid => {
         let imgObj = vid._embedded['wp:featuredmedia'][0]['media_details']['sizes']['full'];
         vid.image_url = imgObj ? imgObj.source_url : './assets/logo.png'
       });
-      return vids
+      if (vids.length <= max){
+        var ret = vids
+      } else {
+        ret = vids.slice(0,max)
+      }
+      return ret
     }
   },
   methods: {
@@ -202,7 +210,12 @@ export default {
     },
     onSlideEnd() {
       this.sliding = false
-    }
+    },
+    domDecoder (str) {
+      let parser = new DOMParser();
+      let dom = parser.parseFromString('<!doctype html><body>' + str, 'text/html');
+      return dom.body.textContent;
+    },
   }
 }
 </script>

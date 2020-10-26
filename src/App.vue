@@ -10,7 +10,6 @@
     <div>
     <AppFooter />
     </div>
-    <router-view></router-view>
   </div>
 </template>
 <style scoped>
