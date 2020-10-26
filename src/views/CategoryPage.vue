@@ -4,7 +4,7 @@
 
 <template>
   <b-container id="wrapper">
-    <div></div>
+    <div><h1>{{ name }}</h1></div>
     <div v-if="results.length">
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
@@ -36,17 +36,38 @@
 <script>
 import axios from "axios"
 import {wpAPI} from "../api/index"
+let ROOT_PATH = 'https://atxvgc.com'
 export default {
   props: 
     {page: Number}, 
   data: () => {
     return {
       results: [],
-      pid: []
+      pid: [],
+      name: '',
+      logo: ROOT_PATH + require('../assets/logo.png')
     };
   },
+  metaInfo() {
+      return {
+        meta: [
+            // Twitter Card
+            {name: 'twitter:card', content: 'summary'},
+            {name: 'twitter:title', content: 'ATX VGC '+this.name +' Category Page'},
+            {name: 'twitter:description', content: 'The '+this.name+'Category Page for ATX VGC'},
+            {name: 'twitter:image', content: this.logo},
+            // Facebook OpenGraph
+            {property: 'og:title', content: 'ATX VGC '+this.name +' Category Page'},
+            {property: 'og:site_name', content: 'ATX VGC'},
+            {property: 'og:type', content: 'website'},
+            {property: 'og:image', content:  this.logo},
+            {property: 'og:description', content: 'The '+this.name+'Category Page for ATX VGC'}
+        ]
+      }
+    },
   mounted() {
     this.fetchPosts()
+    this.name = pageCategories[this.$route.fullPath].name
   },
   watch: {
       $route : function(newVal, oldVal){
@@ -71,7 +92,7 @@ export default {
     fetchPosts(){
       console.log("route", this.$route.fullPath)
       wpAPI
-        .get(pageCategories[this.$route.fullPath])
+        .get(pageCategories[this.$route.fullPath].api)
         .then(response => {
           this.results = response.data
           console.log(this.results)
@@ -89,8 +110,8 @@ export default {
   }
 }
 const pageCategories = {
-  '/': 'posts?_embed&categories=2,3',
-  '/videos': 'posts?_embed&categories=2',
-  '/articles': 'posts?_embed&categories=3'
+  '/': {'api':'posts?_embed&categories=2,3','name':'Home'},
+  '/videos': {'api':'posts?_embed&categories=2', 'name':'Videos'},
+  '/articles': {'api':'posts?_embed&categories=3', 'name':'Articles'}
 };
 </script>
