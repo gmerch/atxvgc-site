@@ -11,7 +11,7 @@
           <b-col l="4">
             <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
               <b-card
-                v-bind:title="data.title.rendered"
+                v-bind:title="domDecoder(data.title.rendered)"
                 v-bind:img-src="data.image_url"
                 img-alt="Image"
                 img-top
@@ -102,6 +102,11 @@ export default {
           console.log(e)
         })
     },
+    domDecoder (str) {
+      let parser = new DOMParser();
+      let dom = parser.parseFromString('<!doctype html><body>' + str, 'text/html');
+      return dom.body.textContent;
+    }
   },
   filters: {
     strippedContent: function(string) {
