@@ -24,60 +24,64 @@
 </style>
 <script>
 import {wpAPI} from "../api/index"
-
+let ROOT_PATH = 'https://atxvgc.com'
 export default {
   titleTemplate: () => {
   // If undefined or blank then we don't need the hyphen
     return this.results.title.rendered ? `${this.results.title.rendered} - ATX VGC` : 'ATX VGC';
   },
-  metaInfo(){
-      this.fetchPost()
-      console.log('tesing meta stuff', this.post.title)
-      return {
-        title: this.title,
-         meta: [
-          // Twitter Card
-          {name: 'twitter:card', content: 'summary'},
-          {name: 'twitter:title', content: this.post.title},
-          {name: 'twitter:description', content: this.post.excerpt.rendered},
-          // image must be an absolute path
-          {name: 'twitter:image', content: this.post.embedded["wp:featuredmedia"][0].full.source_url},
-          // Facebook OpenGraph
-          {property: 'og:title', content: this.post.title.rendered},
-          {property: 'og:site_name', content: 'ATX VGC'},
-          {property: 'og:type', content: 'website'},
-          {property: 'og:image', content:  this.post.embedded["wp:featuredmedia"][0].full.source_url},
-          {property: 'og:description', content: this.post.excerpt.rendered}
-      ]
-      }
-
-    },
-  props: {id: Number, slug: String},
+  props: {id: String, slug: String, titile: String},
   data: () => {
     return {
-      results: []
+      post: null,
+      error: null,
+      title: null,
+      imgRoute: null,
+      description: null,
+      results: [],
+      logo: ROOT_PATH + require('../assets/logo.png')
     };
   },
+  metaInfo() {
+      return {
+        meta: [
+            // Twitter Card
+            {name: 'twitter:card', content: 'summary'},
+            {name: 'twitter:title', content: this.title},
+            {name: 'twitter:description', content: this.description},
+            {name: 'twitter:image', content: this.imgRoute},
+            // Facebook OpenGraph
+            {property: 'og:title', content: this.title},
+            {property: 'og:site_name', content: 'ATX VGC'},
+            {property: 'og:type', content: 'website'},
+            {property: 'og:image', content:  this.imgRoute},
+            {property: 'og:description', content: this.description}
+        ]
+      }
+    },
   mounted() {
     this.fetchPost()
   },
-  computed: {
-    post (){
-      this.fetchPost()
-      console.log("fetching!")
-      return this.results
-
+  processedPosts() {
+      let posts = this.results;
+      // Add image_url attribute
+      posts.map(post => {
+        let imgObj = post._embedded['wp:featuredmedia'][0]['media_details']['sizes']['full'];
+        post.image_url = imgObj ? imgObj.source_url : "./assets/logo.png";
+      });
+      return posts;
     },
-    
-  },
   methods: {
     fetchPost(){
       console.log('posts', this.$route)
       wpAPI
-        .get('posts/' + this.$route.params.id)
+        .get('posts/' + this.$route.params.id+'?_embed')
         .then(response => {
           this.results = response.data
-          console.log(this.results)
+          this.title = this.results.title.rendered
+          console.log('testing 1,2', this.results._embedded['wp:featuredmedia'][0].source_url)
+          this.imgRoute = this.results._embedded['wp:featuredmedia'][0].source_url
+          this.description = this.results.excerpt.rendered
           }
         )
         .catch(e => {

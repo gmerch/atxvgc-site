@@ -5,6 +5,8 @@ import BootstrapVue from 'bootstrap-vue'
 import VueGtag from "vue-gtag";
 import ToggleSwitch from 'vuejs-toggle-switch';
 import Meta from 'vue-meta';
+
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -12,7 +14,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 Vue.use(ToggleSwitch)
-Vue.use(Meta)
+Vue.use(Meta,  {
+  keyName: 'metaInfo',
+  attribute: 'data-vue-meta',
+  ssrAttribute: 'data-vue-meta-server-rendered',
+  tagIDKeyName: 'vmid',
+  refreshOnceOnNavigation: true
+})
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
@@ -21,7 +29,6 @@ import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
-
 
 
 
@@ -196,6 +203,7 @@ const router = new VueRouter({
   routes
 })
 
+
 Vue.use(VueGtag, {
   config: { id: "UA-180683814-1" }
 }, router);
@@ -207,7 +215,6 @@ Vue.filter('striphtml', function (value) {
   var text = div.textContent || div.innerText || "";
   return text;
 });
-
 
 new Vue({
   render: h => h(App),

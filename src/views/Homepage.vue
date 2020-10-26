@@ -120,17 +120,32 @@
 </style>
 <script>
 import {wpAPI} from "../api/index"
+let ROOT_PATH = 'https://atxvgc.com'
 export default {
-    metaInfo: {
-      title: 'ATX VGC Home',
-      // override the parent template and just use the above title only
-      titleTemplate: null
-    },
     data() {
       return {
         results: [],
         videos: [],
-        pid: [] 
+        pid: [],
+        logo: ROOT_PATH + require('../assets/logo.png')
+      }
+    },
+    metaInfo() {
+      return {
+        meta: [
+            // Twitter Card
+            {name: 'twitter:card', content: 'summary'},
+            {name: 'twitter:title', content: 'ATX VGC Homepage'},
+            {name: 'twitter:description', content: 'Home of the Austin Texas VGC Community'},
+            // image must be an absolute path
+            {name: 'twitter:image', content: this.logo},
+            // Facebook OpenGraph
+            {property: 'og:title', content: 'ATX VGC Homepage'},
+            {property: 'og:site_name', content: 'ATX VGC'},
+            {property: 'og:type', content: 'website'},
+            {property: 'og:image', content:  this.logo},
+            {property: 'og:description', content: 'Home of the Austin Texas VGC Community'}
+        ]
       }
     },
     created () {

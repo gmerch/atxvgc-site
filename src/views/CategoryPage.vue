@@ -36,6 +36,7 @@
 <script>
 import axios from "axios"
 import {wpAPI} from "../api/index"
+let ROOT_PATH = 'https://atxvgc.com'
 export default {
   props: 
     {page: Number}, 
@@ -43,9 +44,27 @@ export default {
     return {
       results: [],
       pid: [],
-      name: ''
+      name: '',
+      logo: ROOT_PATH + require('../assets/logo.png')
     };
   },
+  metaInfo() {
+      return {
+        meta: [
+            // Twitter Card
+            {name: 'twitter:card', content: 'summary'},
+            {name: 'twitter:title', content: 'ATX VGC '+this.name +' Category Page'},
+            {name: 'twitter:description', content: 'The '+this.name+'Category Page for ATX VGC'},
+            {name: 'twitter:image', content: this.logo},
+            // Facebook OpenGraph
+            {property: 'og:title', content: 'ATX VGC '+this.name +' Category Page'},
+            {property: 'og:site_name', content: 'ATX VGC'},
+            {property: 'og:type', content: 'website'},
+            {property: 'og:image', content:  this.logo},
+            {property: 'og:description', content: 'The '+this.name+'Category Page for ATX VGC'}
+        ]
+      }
+    },
   mounted() {
     this.fetchPosts()
     this.name = pageCategories[this.$route.fullPath].name
