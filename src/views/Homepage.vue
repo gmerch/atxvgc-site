@@ -186,7 +186,7 @@ export default {
     fetchSliderPosts(){
       console.log('posts?_embed ')
       wpAPI
-        .get('posts?_embed&categories=6&include=269,19,17,144,8&orderby=include')
+        .get('posts?_embed&categories=6&include=269,52,19,17,144,8&orderby=include')
         .then(response => {
           this.results = response.data
           console.log('res', this.results)
