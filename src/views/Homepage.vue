@@ -186,15 +186,21 @@ export default {
     fetchSliderPosts(){
       console.log('posts?_embed ')
       wpAPI
-        .get('posts?_embed&categories=6&include=513,269,522,19,17,144,8&orderby=include')
+        .get('posts?_embed&categories=6')
         .then(response => {
           this.results = response.data
+          this.results = this.results.sort(this.compare);
           console.log('res', this.results)
           }
         )
         .catch(e => {
           console.log(e)
         })
+    },
+    compare(a,b){
+      if (a._embedded.acf.order > b._embedded.acf.order) return 1;
+      if (b._embedded.acf.order > a._embedded.acf.order)  return 1;
+      return 0
     },
     fetchLatestVideo(){
       console.log('posts?_embed&categories=2')
