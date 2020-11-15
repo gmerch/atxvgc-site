@@ -2,7 +2,7 @@
   <b-row width=100%>
   <b-navbar toggleable="lg" type="light" variant="faded" stciky=true class="fluid container-fluid">
     <b-col cols=3.5>
-    <b-navbar-brand href="#"><img src="../assets/logo.png" alt="Logo" width="89.5" height="120"></b-navbar-brand>
+    <b-navbar-brand href="/"><img src="../assets/logo.png" alt="Logo" width="89.5" height="120"></b-navbar-brand>
     </b-col>
     <b-col fluid="md">
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

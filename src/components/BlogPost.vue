@@ -5,10 +5,16 @@
       <b-row>
       <b-col fluid="md" lg=8><h1><div v-html="results.title.rendered"></div></h1></b-col><b-col cols=4></b-col>
       </b-row>
+      <b-row><b-col fluid="md" lg=8><div class="excerpt" v-html="results.excerpt.rendered"></div></b-col><b-col cols=4></b-col></b-row>
+      <b-row><b-col fluid="md" lg=8><p class="by-line">By <a v-bind:href="this.author_link">{{results._embedded.author[0].name }}</a></p></b-col></b-row>
       <b-row><br></b-row>
+
       <b-row>
       <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col><b-col cols=4></b-col>
         </b-row>
+      <b-row>
+        <AuthorCard v-bind:authorid="results.author" />
+      </b-row>
   </b-container>
   
 </template>
@@ -21,16 +27,24 @@
   border: 2px solid black !important;
   border-radius: 5px;
 }
+.excerpt {
+  border-left: 6px solid gold;
+  padding-left: 5px;
+}
 </style>
 <script>
 import {wpAPI} from "../api/index"
+import AuthorCard from '../components/AuthorCard.vue'
 let ROOT_PATH = 'https://atxvgc.com'
 export default {
+  components: {
+      AuthorCard,
+    },
   titleTemplate: () => {
   // If undefined or blank then we don't need the hyphen
     return this.results.title.rendered ? `${this.results.title.rendered} - ATX VGC` : 'ATX VGC';
   },
-  props: {id: String, slug: String, titile: String},
+  props: {slug: String, titile: String},
   data: () => {
     return {
       post: null,
@@ -61,23 +75,25 @@ export default {
     },
   mounted() {
     this.fetchPost()
+    this.author_link = "/"+this.results._embedded[0]['author'].name
+    console.log('author', this.author_link)
   },
   processedPosts() {
       let posts = this.results;
       // Add image_url attribute
-      posts.map(post => {
-        let imgObj = post._embedded['wp:featuredmedia'][0]['media_details']['sizes']['full'];
-        post.image_url = imgObj ? imgObj.source_url : "./assets/logo.png";
-      });
-      return posts;
+      let author = posts[0]._embedded['author'][0];
+      author.img = author.avatar_urls['96'] ? author.avatar_urls['96'] : "./assets/logo.png"
+      return author;
     },
   methods: {
     fetchPost(){
-      console.log('posts', this.$route)
+      console.log('posts?slug=' + this.$route.params.slug+'&_embed')
       wpAPI
-        .get('posts/' + this.$route.params.id+'?_embed')
+        .get('posts?slug=' + this.$route.params.slug+'&_embed')
         .then(response => {
-          this.results = response.data
+          console.log('Starting now')
+          this.results = response.data[0]
+          console.log(this.results)
           this.title = this.results.title.rendered
           console.log('testing 1,2', this.results._embedded['wp:featuredmedia'][0].source_url)
           this.imgRoute = this.results._embedded['wp:featuredmedia'][0].source_url

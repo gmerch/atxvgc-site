@@ -29,6 +29,7 @@ import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
+import AuthorPage from './views/AuthorPage.vue'
 
 
 
@@ -183,10 +184,19 @@ const routes = [
   },
   {
     path: '/blog/:id/:slug',
+    name: 'blogpost-redirect',
+    redirect: '/blog/:slug',
+  },
+  {
+    path: '/blog/:slug',
     name: 'blogpost',
     component: BlogPost,
     props: true
-
+  },
+  {
+    path: '/author/:authorname',
+    name: 'authorpage',
+    component: AuthorPage
   },
   {
     path: '/about',
