@@ -1,17 +1,29 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
 <template>
   <div id="app">
-    <Navbar @update-page="updatePageValue" />
-    <HelloWorld :inPage="page" />
+    <Navbar @update-page="updatePageValue" class="xl ml-0 mr-auto"/>
+    <div class="solid-gradient">
+      <router-view />
+    </div>
+    <div>
+    <AppFooter />
+    </div>
   </div>
 </template>
+<style scoped>
+   @import './assets/styles/app.module.css'
+
+</style>
 <script>
- import HelloWorld from './components/HelloWorld.vue'
-  import Navbar from './components/Navbar.vue';  
+  import Navbar from './components/Navbar.vue'; 
+  import AppFooter from './components/AppFooter.vue';
+  import './assets/styles/app.module.css'
   export default {
-    name: 'navbar',
     components: {
       Navbar,
-      HelloWorld
+      AppFooter
     },
     data() {
       return {

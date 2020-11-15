@@ -1,0 +1,26 @@
+.navbar {
+    background-color: white;
+    font-size: 25px;
+    padding-bottom: 10px
+}
+.navbar-light .navbar-nav .navbar-light .navbar-nav .nav-link:focus  {
+    color:red;
+}
+  
+a {
+    text-decoration: none !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+.router-link-exact-active .router-link-active a{
+    color:red !important
+}
+.router-link {
+    text-decoration: none;
+}
+.social-icon{
+    height: 40px;
+    width: auto;
+  }
+.navbar-container .container div{
+    width:100%;
+}
