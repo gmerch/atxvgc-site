@@ -164,7 +164,8 @@ export default {
         let imgObj = post._embedded['wp:featuredmedia'][0]['media_details']['sizes']['full'];
         post.image_url = imgObj ? imgObj.source_url : "./assets/logo.png";
       });
-      return posts;
+      console.log('posts', posts)
+      return posts
     },
     processedVideos() {
       console.log('vids', this.videos)
@@ -189,18 +190,13 @@ export default {
         .get('posts?_embed&categories=6')
         .then(response => {
           this.results = response.data
-          this.results = this.results.sort(this.compare);
+          this.results = this.results.sort((a, b) => (a.acf.order > b.acf.order) ? 1 : -1);
           console.log('res', this.results)
           }
         )
         .catch(e => {
           console.log(e)
         })
-    },
-    compare(a,b){
-      if (a._embedded.acf.order > b._embedded.acf.order) return 1;
-      if (b._embedded.acf.order > a._embedded.acf.order)  return 1;
-      return 0
     },
     fetchLatestVideo(){
       console.log('posts?_embed&categories=2')
