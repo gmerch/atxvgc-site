@@ -11,7 +11,14 @@
       <b-navbar-nav class="m-auto" fill>
         <b-nav-item to="/">Home</b-nav-item>
         <b-nav-item to="/videos">Videos</b-nav-item>
-        <b-nav-item to="/articles">Articles</b-nav-item>
+        <b-nav-item-dropdown id="articles-drop-down"
+          text="Articles"
+          toggle-class="nav-link-custom"
+          right>
+            <b-dropdown-item to="/articles">All Articles</b-dropdown-item>
+            <b-dropdown-item to="/team-reports">Team Reports</b-dropdown-item>
+        </b-nav-item-dropdown>
+
         <b-nav-item to="/resources">Resources</b-nav-item>
         <b-nav-item-dropdown id="friendlies-drop-down"
           text="Friendlies"

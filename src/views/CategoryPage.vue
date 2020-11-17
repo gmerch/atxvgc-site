@@ -117,6 +117,7 @@ export default {
 const pageCategories = {
   '/': {'api':'posts?_embed&categories=2,3','name':'Home'},
   '/videos': {'api':'posts?_embed&categories=2', 'name':'Videos'},
-  '/articles': {'api':'posts?_embed&categories=3', 'name':'Articles'}
+  '/articles': {'api':'posts?_embed&categories=3', 'name':'Articles'},
+  '/team-reports': {'api': 'posts?_embed&categories=5', 'name': 'Team Reports'}
 };
 </script>

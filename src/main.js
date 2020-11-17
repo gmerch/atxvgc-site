@@ -171,6 +171,10 @@ const routes = [
     }
   },
   {
+    path: '/team-reports',
+    component: CategoryPage
+  },
+  {
     path: '/videos',
     component: CategoryPage
   }, 
@@ -215,7 +219,7 @@ const router = new VueRouter({
 
 
 Vue.use(VueGtag, {
-  config: { id: "UA-180683814-1" }
+  config: { id: process.env.VUE_APP_UA_TAG}
 }, router);
 
 Vue.config.productionTip = false

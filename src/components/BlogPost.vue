@@ -6,11 +6,12 @@
       <b-col fluid="md" lg=8><h1><div v-html="results.title.rendered"></div></h1></b-col><b-col cols=4></b-col>
       </b-row>
       <b-row><b-col fluid="md" lg=8><div class="excerpt" v-html="results.excerpt.rendered"></div></b-col><b-col cols=4></b-col></b-row>
-      <b-row><b-col fluid="md" lg=8><p class="by-line">By <a v-bind:href="this.author_link">{{results._embedded.author[0].name }}</a></p></b-col></b-row>
+      <b-row><b-col fluid="md" lg=8><p class="by-line">By <a :href="'/author/' + results._embedded.author[0].name">{{results._embedded.author[0].name }}</a></p></b-col></b-row>
       <b-row><br></b-row>
 
       <b-row>
-      <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col><b-col cols=4></b-col>
+      <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col>
+      <b-col cols=4></b-col>
         </b-row>
       <b-row>
         <AuthorCard v-bind:authorid="results.author" />
@@ -83,6 +84,7 @@ export default {
       // Add image_url attribute
       let author = posts[0]._embedded['author'][0];
       author.img = author.avatar_urls['96'] ? author.avatar_urls['96'] : "./assets/logo.png"
+      author.link = author._embedded[0]['author'].name
       return author;
     },
   methods: {
