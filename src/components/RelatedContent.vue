@@ -2,7 +2,7 @@
 <template>
     <b-container>
         <div class="related"><p><strong>Related: </strong><a :href="'/blog/'+related_slug">{{ title }}</a></p>
-        <img class="related-thumbnail" :src="featured_image">
+        <a :href="'/blog/'+related_slug"><img class="related-thumbnail" :src="featured_image"></a>
         </div>
     </b-container>
 </template>
