@@ -11,7 +11,9 @@
 
       <b-row>
       <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col>
-      <b-col cols=4></b-col>
+      <b-col fluod="sm">
+        <ReltatedContent v-if="results.acf['suggested-url']" :related_slug="results.acf['suggested-url']"></ReltatedContent>
+        </b-col>
         </b-row>
       <b-row>
         <AuthorCard v-bind:authorid="results.author" />
@@ -45,10 +47,12 @@
 <script>
 import {wpAPI} from "../api/index"
 import AuthorCard from '../components/AuthorCard.vue'
+import ReltatedContent from '../components/RelatedContent'
 let ROOT_PATH = 'https://atxvgc.com'
 export default {
   components: {
       AuthorCard,
+      ReltatedContent
     },
   titleTemplate: () => {
   // If undefined or blank then we don't need the hyphen
@@ -109,6 +113,7 @@ export default {
           console.log('testing 1,2', this.results._embedded['wp:featuredmedia'][0].source_url)
           this.imgRoute = this.results._embedded['wp:featuredmedia'][0].source_url
           this.description = this.results.excerpt.rendered
+          this.related_slug = this.results.acf['suggested-url']
           }
         )
         .catch(e => {

@@ -1,13 +1,21 @@
-//src/components/AuthorCard.vue
+//src/components/ReltatedContent.vue
 <template>
-    <b-container class="related">
-        <p><strong>Related:</strong><a :href="'/blog/'+related_slug">{{ domDecoder(title.rendered) }}</a></p>
+    <b-container>
+        <div class="related"><p><strong>Related: </strong><a :href="'/blog/'+related_slug">{{ title }}</a></p>
+        <img class="related-thumbnail" :src="featured_image">
+        </div>
     </b-container>
 </template>
-<style scoped>
-    .related b-container{
-        border-top: 3px solid grey;
-        padding-top: 2px;
+<style>
+    .related {
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .related-thumbnail img{
+      display: in-line;
+      max-width: 360px;
     }
 </style>
 <script>
@@ -21,16 +29,21 @@ export default {
     };
   },
   mounted() {
-    this.fetchAuthor()
+    this.fetchTitle()
 
   },
   methods: {
-    fetchAuthor(){
+    fetchTitle(){
+      console.log("slug", this.related_slug)
       wpAPI
-        .get('posts?_embedded_&slug=' + this.related_slug)
+        .get('posts?_embed&slug=' + this.related_slug)
         .then(response => {
-          this.result = response.data
-          this.title = this.result.title.rendered
+          this.result = response.data[0]
+          console.log(this.result)
+          this.title = this.domDecoder(this.result.title.rendered)
+          this.featured_image = this.result._embedded['wp:featuredmedia'][0]['media_details']['sizes']['medium'].source_url
+          console.log(this.featured_image)
+          console.log(this.title)
 
           }
         )
@@ -38,6 +51,11 @@ export default {
           console.log(e)
         })
     },
+    domDecoder (str) {
+      let parser = new DOMParser();
+      let dom = parser.parseFromString('<!doctype html><body>' + str, 'text/html');
+      return dom.body.textContent;
+    }
   }
 }
 </script>

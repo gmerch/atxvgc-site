@@ -24,7 +24,7 @@ Vue.use(Meta,  {
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
-import BlogPost from './components/BlogPost.vue'
+import BlogPost from './views/BlogPost.vue'
 import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
