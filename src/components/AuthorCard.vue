@@ -1,11 +1,14 @@
 //src/components/AuthorCard.vue
 <template>
     <b-container class="author-card">
-        <div><img class="headshot" :src=imgRoute><p> {{ authorname }}</p><p> {{ description}}</p></div>
+        <div><img class="headshot" :src=imgRoute> {{ authorname }}<p> {{ description}}</p></div>
     </b-container>
 </template>
 <style scoped>
-    .headshot img {border-radius:50% important!}
+    .headshot {
+      display: inline-block;
+      border-radius:50%;
+      }
     .author-card {
         border-top: 3px solid grey;
         padding-top: 2px;

@@ -6,7 +6,7 @@
       <b-col fluid="md" lg=8><h1><div v-html="results.title.rendered"></div></h1></b-col><b-col cols=4></b-col>
       </b-row>
       <b-row><b-col fluid="md" lg=8><div class="excerpt" v-html="results.excerpt.rendered"></div></b-col><b-col cols=4></b-col></b-row>
-      <b-row><b-col fluid="md" lg=8><p class="by-line">By <a :href="'/author/' + results._embedded.author[0].name">{{results._embedded.author[0].name }}</a></p></b-col></b-row>
+      <b-row><b-col fluid="md" lg=8><p class="by-line">By <a :href="'/author/' + results._embedded.author[0].name.toLowerCase()">{{results._embedded.author[0].name }}</a></p></b-col></b-row>
       <b-row><br></b-row>
 
       <b-row>
@@ -19,19 +19,28 @@
   </b-container>
   
 </template>
-<style scoped>
-.twitter-tweet block a { 
-  border: 2px solid black !important;
-  border-radius: 5px;
-}
-.tweet-border div{
-  border: 2px solid black !important;
-  border-radius: 5px;
-}
-.excerpt {
-  border-left: 6px solid gold;
-  padding-left: 5px;
-}
+<style>
+  .twitter-tweet block a { 
+    border: 2px solid black !important;
+    border-radius: 5px;
+  }
+  .tweet-border div{
+    border: 2px solid black !important;
+    border-radius: 5px;
+  }
+  .excerpt {
+    border-left: 6px solid gold;
+    padding-left: 5px;
+  }
+  figcaption {
+    display: block;
+    font-style: italic;
+    clear: left;
+    margin: .75em 0;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.5em;
+  }
 </style>
 <script>
 import {wpAPI} from "../api/index"
