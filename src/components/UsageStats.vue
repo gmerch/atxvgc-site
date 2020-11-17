@@ -54,7 +54,8 @@ export default {
                 labels: [
                 {name: '4', color: 'white'}, 
                 {name: '5', color: 'white'}, 
-                {name: '6', color: 'white'}
+                {name: '6', color: 'white'},
+                {name: '7', color: 'white'}
                 ]
             }
         }
