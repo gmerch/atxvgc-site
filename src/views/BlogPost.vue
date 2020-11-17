@@ -11,10 +11,11 @@
 
       <b-row>
       <b-col fluid="md" lg=8><div v-html="results.content.rendered"></div></b-col>
-      <b-col fluod="sm">
+      <b-col fluid="sm">
         <ReltatedContent v-if="results.acf['suggested-url']" :related_slug="results.acf['suggested-url']"></ReltatedContent>
         </b-col>
         </b-row>
+      <b-row><p></p></b-row>
       <b-row>
         <AuthorCard v-bind:authorid="results.author" />
       </b-row>
