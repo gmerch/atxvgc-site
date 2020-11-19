@@ -34,7 +34,7 @@ export default {
         usage: [],
         format: this.format,
         series: this.series,
-        selected: '6',
+        selected: '7',
         myOptions: {
             layout: {
                 color: 'black',
@@ -49,12 +49,13 @@ export default {
             },
             items: {
                 delay: .4,
-                preSelected: '6',
+                preSelected: '7',
                 disabled: false,
                 labels: [
                 {name: '4', color: 'white'}, 
                 {name: '5', color: 'white'}, 
-                {name: '6', color: 'white'}
+                {name: '6', color: 'white'},
+                {name: '7', color: 'white'}
                 ]
             }
         }
