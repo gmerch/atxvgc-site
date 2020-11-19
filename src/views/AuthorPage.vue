@@ -1,15 +1,15 @@
-//src/views/CategoryPage.vue
+//src/views/AuthorPage.vue
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
 <template>
   <b-container id="wrapper">
-    <div><h1>{{ name }}</h1></div>
+    <div><h1>{{ display_name }}</h1></div>
     <div v-if="results.length">
       <b-row>
         <div v-bind:key="data.index" v-for="data in processedPosts">
           <b-col l="4">
-            <router-link :to="'/blog/'+ data.id + '/' + data.slug" :id="data.id" :slug="data.slug">
+            <router-link :to="'/blog/'+data.slug" :slug="data.slug">
               <b-card
                 v-bind:title="domDecoder(data.title.rendered)"
                 v-bind:img-src="data.image_url"
@@ -30,21 +30,17 @@
     </div>
   </b-container>
 </template>
-<style scoped>
-  @import '../assets/styles/category-page.module.css'
-</style>
 <script>
 import axios from "axios"
 import {wpAPI} from "../api/index"
 let ROOT_PATH = 'https://atxvgc.com'
 export default {
-  props: 
-    {page: Number}, 
   data: () => {
     return {
       results: [],
       pid: [],
-      name: '',
+      id: '',
+      authorname: '',
       logo: ROOT_PATH + require('../assets/logo.png')
     };
   },
@@ -66,8 +62,11 @@ export default {
       }
     },
   mounted() {
+    this.authorname = this.$route.params.authorname
+    console.log(pageCategories[this.authorname])
+    this.author_id = pageCategories[this.authorname]['id']
+    this.display_name = pageCategories[this.authorname]['display_name']
     this.fetchPosts()
-    this.name = pageCategories[this.$route.fullPath].name
   },
   watch: {
       $route : function(newVal, oldVal){
@@ -90,17 +89,18 @@ export default {
   },
   methods: {
     fetchPosts(){
-      console.log("route", this.$route.fullPath)
-      wpAPI
-        .get(pageCategories[this.$route.fullPath].api)
-        .then(response => {
-          this.results = response.data
-          console.log(this.results)
+        console.log('posts?author=' + this.author_id+'&_embed')
+        wpAPI
+          .get('posts?author=' + this.author_id+'&_embed')
+          .then(response => {
+            this.results = response.data
+            console.log('res', this.results)
           }
-        )
-        .catch(e => {
-          console.log(e)
-        })
+          )
+          .catch(e => {
+            console.log(e)
+            console.log("WHY")
+          });
     },
     domDecoder (str) {
       let parser = new DOMParser();
@@ -115,9 +115,11 @@ export default {
   }
 }
 const pageCategories = {
-  '/': {'api':'posts?_embed&categories=2,3','name':'Home'},
-  '/videos': {'api':'posts?_embed&categories=2', 'name':'Videos'},
-  '/articles': {'api':'posts?_embed&categories=3', 'name':'Articles'},
-  '/team-reports': {'api': 'posts?_embed&categories=5', 'name': 'Team Reports'}
+  'atxvgc': {'id':1, 'display_name': "ATX VGC"},
+  'gemz': {'id':4, 'display_name': 'Gemz'},
+  'playboikartana': {'id':2,'display_name':'Chase Tiedtke'},
+  'rollacosta': {'id':3, 'display_name': 'RollAcosta'},
+  'waveracer': {'id':7,'display_name':'Waveracer'},
+  'wokeflossy': {'id':5,'display_name':'Wokeflossy'}
 };
 </script>

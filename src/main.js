@@ -24,11 +24,12 @@ Vue.use(Meta,  {
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
-import BlogPost from './components/BlogPost.vue'
+import BlogPost from './views/BlogPost.vue'
 import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
+import AuthorPage from './views/AuthorPage.vue'
 
 
 
@@ -170,6 +171,10 @@ const routes = [
     }
   },
   {
+    path: '/team-reports',
+    component: CategoryPage
+  },
+  {
     path: '/videos',
     component: CategoryPage
   }, 
@@ -183,10 +188,19 @@ const routes = [
   },
   {
     path: '/blog/:id/:slug',
+    name: 'blogpost-redirect',
+    redirect: '/blog/:slug',
+  },
+  {
+    path: '/blog/:slug',
     name: 'blogpost',
     component: BlogPost,
     props: true
-
+  },
+  {
+    path: '/author/:authorname',
+    name: 'authorpage',
+    component: AuthorPage
   },
   {
     path: '/about',
@@ -205,7 +219,7 @@ const router = new VueRouter({
 
 
 Vue.use(VueGtag, {
-  config: { id: process.env.VUE_APP_UA_TAG }
+  config: { id: process.env.VUE_APP_UA_TAG}
 }, router);
 
 Vue.config.productionTip = false

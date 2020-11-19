@@ -17,7 +17,7 @@
             @sliding-end="onSlideEnd"
           >
             <div v-bind:key="data.index" v-for="data in processedPosts">
-            <router-link :to="'/blog/'+ data.id.toString() + '/' + data.slug" :id="data.id" :slug="data.slug">
+            <router-link :to="'/blog/'+ data.slug" :slug="data.slug">
               <b-carousel-slide
                 v-bind:caption="domDecoder(data.title.rendered)"
                 v-bind:img-src="data.image_url"
