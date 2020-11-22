@@ -29,9 +29,8 @@ import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
-
-
-
+import StorePage from './views/StorePage.vue'
+import ProductPage from './views/ProductPage.vue'
 
 const routes = [
   {
@@ -195,6 +194,14 @@ const routes = [
   {
     path: '/resources',
     component: Resources
+  },
+  {
+    path: '/store',
+    component: StorePage
+  },
+  {
+    path: '/product/:slug',
+    component: ProductPage
   }
 ]
 
