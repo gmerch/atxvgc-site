@@ -44,6 +44,10 @@
     font-style: italic;
     line-height: 1.5em;
   }
+  img {
+    height: auto;
+    max-width: 100%;
+  }
 </style>
 <script>
 import {wpAPI} from "../api/index"
