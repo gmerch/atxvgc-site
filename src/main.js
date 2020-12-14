@@ -29,10 +29,8 @@ import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
 import UsageStats from './components/UsageStats.vue'
+import ProductPage from './views/ProductPage.vue'
 import AuthorPage from './views/AuthorPage.vue'
-
-
-
 
 const routes = [
   {
@@ -209,6 +207,19 @@ const routes = [
   {
     path: '/resources',
     component: Resources
+  },
+  {
+    path: '/store',
+    beforeEnter(to, from, next) {
+      // Put the full page URL including the protocol http(s) below
+      window.location.replace("https://store.atxvgc.com")
+      next()
+  }
+
+  },
+  {
+    path: '/product/:slug',
+    component: ProductPage
   }
 ]
 
