@@ -3,30 +3,173 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import VueGtag from "vue-gtag";
+import ToggleSwitch from 'vuejs-toggle-switch';
+import Meta from 'vue-meta';
+
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
+Vue.use(ToggleSwitch)
+Vue.use(Meta,  {
+  keyName: 'metaInfo',
+  attribute: 'data-vue-meta',
+  ssrAttribute: 'data-vue-meta-server-rendered',
+  tagIDKeyName: 'vmid',
+  refreshOnceOnNavigation: true
+})
 
 import CategoryPage from './views/CategoryPage.vue'
 import StandingsPage from './views/StandingsPage.vue'
-import BlogPost from './components/BlogPost.vue'
+import BlogPost from './views/BlogPost.vue'
 import About from './views/About.vue'
 import Resources from './views/Resources.vue'
 import Homepage from './views/Homepage.vue'
+import UsageStats from './components/UsageStats.vue'
+import ProductPage from './views/ProductPage.vue'
+import AuthorPage from './views/AuthorPage.vue'
 
 const routes = [
   {
     path: '/',
-    component: Homepage
+    component: Homepage,
+    meta: {
+      'title': 'ATX VGC',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC is the Home of the Austin Texas VGC Community"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC is the Home of the Austin Texas VGC Community"
+        }
+      ]
+    }
   },
   {
     path: '/home',
-    component: Homepage
+    component: Homepage,
+    meta: {
+      'title': 'ATX VGC',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC is the Home of the Austin Texas VGC Community"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC is the Home of the Austin Texas VGC Community"
+        }
+      ]
+    }
   },
   {
     path: '/articles',
+    component: CategoryPage,
+    meta: {
+      'title': 'ATX VGC Articles',
+      'metaTags': [
+        {
+          'name': 'twitter:site',
+          'content': 'ATXVGC'
+        },
+        {
+          'name': 'twitter:card',
+          'content': 'summary'
+        },
+        {
+          'name': 'twitter:description',
+          'content': "ATX VGC VGC Articles Page"
+        },
+        {
+          'name': 'twitter:title',
+          'content':'Articles | ATX VGC'
+        },
+        {
+          'name': 'twitter:image',
+          'content':'./assets/logo.png'
+        },
+        {
+          'property': 'og:title',
+          'content': 'Articles | ATX VGC'
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': './assets/logo.png'
+        },
+        {
+          'property': 'og:description',
+          'content':  "ATX VGC's Articles"
+        }
+      ]
+    }
+  },
+  {
+    path: '/team-reports',
     component: CategoryPage
   },
   {
@@ -34,15 +177,28 @@ const routes = [
     component: CategoryPage
   }, 
   {
-    path: '/standings',
+    path: '/friendlies/standings',
     component: StandingsPage
   },
   {
+    path: '/friendlies/usage',
+    component: UsageStats
+  },
+  {
     path: '/blog/:id/:slug',
+    name: 'blogpost-redirect',
+    redirect: '/blog/:slug',
+  },
+  {
+    path: '/blog/:slug',
     name: 'blogpost',
     component: BlogPost,
     props: true
-
+  },
+  {
+    path: '/author/:authorname',
+    name: 'authorpage',
+    component: AuthorPage
   },
   {
     path: '/about',
@@ -51,6 +207,19 @@ const routes = [
   {
     path: '/resources',
     component: Resources
+  },
+  {
+    path: '/store',
+    beforeEnter(to, from, next) {
+      // Put the full page URL including the protocol http(s) below
+      window.location.replace("https://store.atxvgc.com")
+      next()
+  }
+
+  },
+  {
+    path: '/product/:slug',
+    component: ProductPage
   }
 ]
 
@@ -59,8 +228,9 @@ const router = new VueRouter({
   routes
 })
 
+
 Vue.use(VueGtag, {
-  config: { id: "UA-180683814-1" }
+  config: { id: process.env.VUE_APP_UA_TAG}
 }, router);
 
 Vue.config.productionTip = false
@@ -70,7 +240,6 @@ Vue.filter('striphtml', function (value) {
   var text = div.textContent || div.innerText || "";
   return text;
 });
-
 
 new Vue({
   render: h => h(App),
